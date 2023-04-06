@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import "./App.css";
+
+const App = () => {
+  const [count, setCount] = useState(0); //initialise with 0 state with useState syntax
+
+  const increaseCount = () => {
+    setCount(count+1); // there a better method of doing it.
+  }
+
+  const decreaseCount = () => {
+    setCount(count-1); // there a better method of doing it.
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello Worlds ! React
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="AppHeader">COUNTER</div>
+      <div className="Counter">
+      {/* Button to decrease the count */}
+        <button onClick={()=>decreaseCount()}>-</button>
+
+      {/* Dynamic count --> State */}
+
+        <p>{count}</p>
+
+      {/* Button to increase the count */}
+        <button onClick={()=>increaseCount()}>+</button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
+
+// fun a(){};  a();
